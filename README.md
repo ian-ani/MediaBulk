@@ -28,6 +28,14 @@ For more information see **ffmpeg** docs: [link](https://ffmpeg.org/ffmpeg.html)
 3. Copy all the files from *bin* to a folder of your choice.
 4. Add *bin* to your **Path** environment variables.
 
+For this script to work, as PowerShell might be quite strict with some scripts, you need to activate this first:
+
+``Set-ExecutionPolicy RemoteSigned -Scope CurrentUser``
+
+And to deactivate it once you're done:
+
+``Set-ExecutionPolicy Restricted -Scope CurrentUser``
+
 ## Usage
 
 1. It will ask if you are in the correct folder (answer with Y or N). If not, write your path and it will automatically change

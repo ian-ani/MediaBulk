@@ -28,6 +28,14 @@ Para más información echa un vistazo a la documentación de **ffmpeg**: [link]
 3. Copia todos los archivos de *bin* a una carpeta de tu elección.
 4. Añade **bin** a las variables de entorno de **Path**.
 
+Para que funcione este script, ya que PowerShell puede ser un poco estricto con algunos scripts, necesitas activar esto antes:
+
+``Set-ExecutionPolicy RemoteSigned -Scope CurrentUser``
+
+Y para desactivarlo una vez hayas terminado:
+
+``Set-ExecutionPolicy Restricted -Scope CurrentUser``
+
 ## Uso
 
 1. Preguntará si estás en el directorio correcto (contesta con Y o N). Si no es así, escribe la ruta y automáticamente 
