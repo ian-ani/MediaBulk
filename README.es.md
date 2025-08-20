@@ -10,12 +10,7 @@
 ## Acerca de este repositorio
 
 Probado en Windows 10.  
-Convierte varios videos de tu elección con **ffmpeg**. Puedes cambiar la siguiente línea 
-si deseas otro tipo de conversión o configuración para tus vídeos:
-
-``ffmpeg -i "$file" -c:v libx264 -c:a copy "$output"``
-
-Mantén "$file" y "$output" tal y como están.
+Convierte varios videos de tu elección con **ffmpeg**, también se puede extraer el audio de los archivos de vídeo.
 
 Para más información echa un vistazo a la documentación de **ffmpeg**: [link](https://ffmpeg.org/ffmpeg.html)
 
@@ -38,19 +33,13 @@ Y para desactivarlo una vez hayas terminado:
 
 ## Uso
 
-1. Preguntará si estás en el directorio correcto (contesta con Y o N). Si no es así, escribe la ruta y automáticamente 
-cambiará a la que hayas escrito.
-2. Preguntará si la siguiente configuración es correcta, elige [1] o [2].
-3. Preguntará que escribas un nombre de archivo. Preguntará por cada archivo de esta ruta.
-4. Si no quieres la conversión por defecto que tengo escrita, abre este archivo con cualquier edit de texto y haz un cambio. 
-Mira el punto **Acerca de este repositorio** para la documentación de ffmpeg.
-5. Si deseas cancelar el programa, presiona **CTRL+C**.
+1. Arranca:
+    - Para la conversión de vídeo: **Convert-Video.ps1**
+    - Para la extracción de audio: **Extract-Audio.ps1**
+2. Uso:
+    - Vídeos: `.\Convert-Bulk.ps1 C:\Videos libx264`  
+    (Si se omite el [códec](https://ffmpeg.org/ffmpeg-codecs.html#Video-Decoders), se usará **libx264** por defecto)
 
-Ejemplo:
-
-- Estás en **C:\Descargas** pero tus vídeos están en **G:\Descargas\Peliculas**, así que contesta con **N**
-- Escribe **G:\Descargas\Peliculas**
-- Preguntará de nuevo. Estás en **G:\Descargas\Peliculas**, así que esta vez contesta con **Y**
-- Escribe **2** cuando te pregunte si la configuración es correcta.
-- Escribe **pelicula01.mp4** y la convertirá de **MiPelicula.mkv** a **pelicula01.mp4**
-- Para cualquier archivo restante, repetirá este punto anterior.
+    - Audio: `.\Extract-Audio.ps1 C:\Music flac`  
+    (Si se omite el [códec](https://ffmpeg.org/ffmpeg-codecs.html#Audio-Encoders), se usará **libmp3lame** por defecto)
+3. Elige el nombre del archivo de salida, como por ejemplo, *video.mp4*.

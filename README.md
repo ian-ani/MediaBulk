@@ -10,12 +10,7 @@
 ## About the project
 
 Tested on Windows 10.  
-Converts various videos of your choice with **ffmpeg**. You can change this line if you wish 
-another type of conversion or configuration for your videos:
-
-``ffmpeg -i "$file" -c:v libx264 -c:a copy "$output"``
-
-Leave "$file" and "$output" as is.
+Converts various videos of your choice with **ffmpeg**, or extracts audio from video files.
 
 For more information see **ffmpeg** docs: [link](https://ffmpeg.org/ffmpeg.html)
 
@@ -38,18 +33,13 @@ And to deactivate it once you're done:
 
 ## Usage
 
-1. It will ask if you are in the correct folder (answer with Y or N). If not, write your path and it will automatically change
-to the one you choose.
-2. It will ask if this configuration is correct, choose [1] or [2].
-3. It will ask you to input a filename. It will ask for every file in this path.
-4. If you don't want my default conversion, open this file with any text editor and change it. See point *About the project* for ffmpeg docs.
-5. If you want to cancel it, press **CTRL+C**.
+1. Run:
+    - Convert videos: **Convert-Video.ps1**
+    - Extract audio: **Extract-Audio.ps1**
+2. Usage:
+    - Videos: `.\Convert-Bulk.ps1 C:\Videos libx264`   
+    (If you omit the [codec](https://ffmpeg.org/ffmpeg-codecs.html#Video-Decoders), **libx264** will be set by default)
 
-Example:
-
-- You're in **C:\Downloads** but your videos are in **G:\Downloads\Movies**, so when prompted answer with **N**
-- Write **G:\Downloads\Movies**
-- It will ask again. You're in **G:\Downloads\Movies**, so this time answer with **Y**
-- Answer **2** when prompted asking about the configuration.
-- Write **movie01.mp4** and it will convert **MyMovie.mkv** to **movie01.mp4**
-- For any remaining files, it will repeat the last point.
+    - Audio: `.\Extract-Audio.ps1 C:\Music flac`  
+    (If you omit the [codec](https://ffmpeg.org/ffmpeg-codecs.html#Audio-Encoders), **libmp3lame** will be set by default)
+3. Choose a name for the output file, such as *video.mp4*.
