@@ -14,24 +14,9 @@ param (
 	[string]$Codec
 )
 
-if ($args.Count -gt 0) {
-	Write-Error "Example usage: .\Convert-Bulk.ps1 C:\Videos libx264"
-	exit 1
-}
-
-if (-not $Path) {
-	Write-Error "Invalid path: $Path"
-	exit 1
-}
-
 if (-not $Codec) {
 	$Codec = "libx264"
 }
-
-Write-Output "`n=== Configuration === "
-Write-Output "Path: $Path"
-Write-Output "Codec: $Codec"
-Write-Output "`nFiles will be converted now...`n"
 
 # === IMPORT UTILS FUNCTIONS ===
 
@@ -62,6 +47,14 @@ function Convert-File {
 	}
 	Write-Output "All files converted."
 }
+
+# === CONFIGURATION MESSAGES ===
+
+Write-Output "`n=== Configuration === "
+Write-Output "Path: $Path"
+Write-Output "Codec: $Codec"
+Ask-Settings
+Write-Output "`nFiles will be converted now...`n"
 
 # === MAIN ===
 

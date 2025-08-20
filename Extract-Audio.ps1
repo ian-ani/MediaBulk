@@ -14,26 +14,9 @@ param (
 	[string]$Codec
 )
 
-if ($args.Count -gt 0) {
-	Write-Error "Example usage: .\Extract-Audio.ps1 C:\Music flac"
-	exit 1
-}
-
-if (-not $Path) {
-	Write-Error "Invalid path: $Path"
-	exit 1
-}
-
 if (-not $Codec) {
 	$Codec = "libmp3lame"
 }
-
-# === CONFIGURATION MESSAGES ===
-
-Write-Output "`n=== Configuration === "
-Write-Output "Path: $Path"
-Write-Output "Codec: $Codec"
-Write-Output "`nAudio will be extracted now...`n"
 
 # === IMPORT UTILS FUNCTIONS ===
 
@@ -63,6 +46,14 @@ function Extract-Audio {
 	}
 	Write-Output "All audio extracted from files."
 }
+
+# === CONFIGURATION MESSAGES ===
+
+Write-Output "`n=== Configuration === "
+Write-Output "Path: $Path"
+Write-Output "Codec: $Codec"
+Ask-Settings
+Write-Output "`nAudio will be extracted now...`n"
 
 # === MAIN ===
 
